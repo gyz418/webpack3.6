@@ -21,8 +21,9 @@ module.exports = {
       {test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=16000&name=[hash:8]-[name].[ext]'},  // 处理样式中的图片
       // 小于limit 会打包成 base64图片  name=[hash:8]-[name].[ext] 保持文件名和后缀名一致，默认图片名进行编码了,图片添加了哈希值，取前8位
       {test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader'}, // 处理字体文件
-      {test: /\.js$/, use: 'babel-loader', exclude: /node_modules/}, // 配置babel 转换 高级的es6， node——modules除外
-      {test:/\.vue$/,use:'vue-loader'}
+      {test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/}, // 配置babel 转换 高级的es6， node——modules除外
+      //\.jsx?\ 匹配 js 或 jsx
+      {test: /\.vue$/, use: 'vue-loader'}
     ]
 
   },
