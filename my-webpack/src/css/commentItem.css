@@ -1,0 +1,10 @@
+.section{
+  border:1px solid #ccc;
+  margin-bottom: 10px;
+}
+.title{
+  color: red;
+}
+.content{
+  color: blue;
+}
