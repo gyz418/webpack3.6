@@ -68,7 +68,7 @@ var p ={
  - element diff:在组件中的元素对比
  - key：key这个属性，可以把 页面上的 DOM节点 和 虚拟DOM中的对象，做一层关联关系；
 
-![图片](http://placekitten.com/200/198) 
+![图片](./React中组件的生命周期%20-%20详解.png) 
 
 ### 4.3生命周期
 1 `static defaultProps={}` 初始化props属性默认值
@@ -84,4 +84,18 @@ var p ={
 
 4 卸载
   + unmount-> `componentWillUnmount`还没开始卸载
-  
+
+组件生命周期的执行顺序：
++ Mounting：
+  - constructor()
+  - componentWillMount()
+  - render()
+  - componentDidMount()
++ Updating：
+  - componentWillReceiveProps(nextProps)
+  - shouldComponentUpdate(nextProps, nextState)
+  - componentWillUpdate(nextProps, nextState)
+  - render()
+  - componentDidUpdate(prevProps, prevState)
++ Unmounting：
+  - componentWillUnmount()  

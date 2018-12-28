@@ -1,11 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import CommentList from './component/CommentList.jsx'
-
-import "./css/index.css"
+import Counter from './component/Counter.jsx'
 
 
 ReactDOM.render(<div>
-  <CommentList/>
+  <Counter initCount={3}/>
 </div>, document.getElementById('app'))
