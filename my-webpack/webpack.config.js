@@ -14,11 +14,11 @@ module.exports = {
   ],
   module: {  // 配置所有第三方模块加载器
     rules: [
-      {test: /\.css$/, use: ['style-loader', 'css-loader?modules&localIdentName=[name]-[local]-[hash:5]']}, // 重命名
+      {test: /\.css$/, use: ['style-loader', 'css-loader']}, // 重命名
       //{test: /\.css$/, use: ['style-loader', 'css-loader?modules']},  // 加载 .css,先从后面往前调用 css-loader -> style-loader
       // 最新版css-loader 使用 css 模块化报错，目前修改为 v0.28.7
-
-     {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},
+      // 一般只对自己写的less 或 scss 启用 css 模块化
+     {test: /\.less$/, use: ['style-loader', 'css-loader?modules&localIdentName=[name]-[local]-[hash:5]', 'less-loader']},
       // {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']}
       // 注意文件名是 scss  插件是 sass   sass安装失败
       {test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=16000&name=[hash:8]-[name].[ext]'},  // 处理样式中的图片

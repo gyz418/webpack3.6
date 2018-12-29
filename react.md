@@ -1,3 +1,5 @@
+> vscode atom 都是用 electorn 开发的， electorn 是用html/js/css 开发桌面应用
+
 ## 一、h5+
 h5+  HTML5中国产业联盟
 hbuilder 源代码被提交到云端，代码泄露   使用 gyz418@126.com 老密码注册账号获得 appId

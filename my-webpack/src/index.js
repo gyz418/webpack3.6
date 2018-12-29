@@ -1,11 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import CommentList from './component/CommentList.jsx'  // jsx 引入时要大写
-// import Test from './component/Test.jsx'
-import Test from './component/Test2.jsx'    /* context 应用 */
+import App from './App.jsx'
+// import 'antd/dist/antd.css'; //  企业级 UI  蚂蚁金服
 
-ReactDOM.render(<div>
-  {/*<CommentList/>*/}  {/* 评论列表 */}
-  <Test/>
-</div>, document.getElementById('app'))
+ReactDOM.render(<App/>, document.getElementById('app'))
