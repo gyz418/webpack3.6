@@ -1,17 +1,14 @@
 import React from 'react'
 
-/*  HashRouter 路由跟踪器，包含所有路由信息，一个网站只用一次
-*   Route 路由规则，
-*   Link 类似 vue的 <router-link></router-link>
-*
-* */
 import { HashRouter, Route, Link } from 'react-router-dom'
-// https://reacttraining.com/react-router/web/guides/quick-start
+import { Layout, Menu } from 'antd';
+import app from './css/app.less'
 
-import Home from './component/home.jsx'
-import List from './component/list.jsx'
-import { DatePicker } from 'antd'  // 按需引入 利用babel-plugin-import  自动导入样式
-// https://ant.design/docs/react/introduce-cn
+import Homes from './component/Homes.jsx'
+import Movie from './component/Movie.jsx'
+import About from './component/About.jsx'
+const { Header, Content, Footer } = Layout;
+
 export default class App extends React.Component {
   constructor (props) {
     super(props)
@@ -21,17 +18,36 @@ export default class App extends React.Component {
 
   render () {
     return <HashRouter>
-      <div>
-        <DatePicker/>
-        <h1>this is app</h1>
-        <Link to="/home">home</Link>&nbsp;&nbsp;
-        <Link to="/list/dfdfd">list</Link>&nbsp;&nbsp;
+      <div style={{height:'100%'}}>
+        <Layout className="layout" style={{height:'100%'}}>
+          {/* 头 */}
+          <Header>
+            <div className={app.logo} />
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={[window.location.hash.split('/')[1] || 'movie']}
+              style={{ lineHeight: '64px' }}
+            >
+              <Menu.Item key="home"><Link to="/home">首页</Link></Menu.Item>
+              <Menu.Item key="movie"><Link to="/movie">电影</Link></Menu.Item>
+              <Menu.Item key="about"><Link to="/about">关于</Link></Menu.Item>
+            </Menu>
+          </Header>
 
-        {/* exact 路由精确匹配，默认模糊匹配*/}
-        {/*<Route path="/home" component={Home} exact/>*/}
-        {/* 精确匹配时，指定后面是匹配参数*/}
-        <Route path="/home/:type/:id" component={Home} exact/>
-        <Route path="/list" component={List}/>
+          {/* 内容*/}
+          <Content style={{background:'#fff',flex:1}}>
+            {/* route 还是一个占位块*/}
+            <Route path='/home' component={Homes}/>
+            <Route path='/movie' component={Movie}/>
+            <Route path='/about' component={About}/>
+          </Content>
+
+          {/* footer */}
+          <Footer style={{ textAlign: 'center' }}>
+            Ant Design ©2018 Created by Ant UED
+          </Footer>
+        </Layout>
       </div>
     </HashRouter>
   }
