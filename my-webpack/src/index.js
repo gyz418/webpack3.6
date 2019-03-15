@@ -14,7 +14,7 @@ class Teacher{
   static age = 12
 }
 
-document.write(Teacher.age)
+// document.write(Teacher.age)
 
 import Vue from 'vue' // 实际加载的是  node_modules/vue/package.json 里面的 main 属性
 import VueRouter from 'vue-router'
@@ -24,7 +24,9 @@ import foo from './main/foo.vue'
 import bar from './main/bar.vue'
 import a from './main/a.vue'
 import b from './main/b.vue'
+import login from './login.vue'
 const routes = [
+  { path: '/', component: login },
   { path: '/foo', component: foo,
   children:[ // 子组件 path没有/
     { path: 'a', component: a },
@@ -51,7 +53,7 @@ const router = new VueRouter({
 * */
 //
 //
-import login from './login.vue'
+// import login from './login.vue'
 var vm = new Vue({
   el:'#app',
   data:{
@@ -60,7 +62,7 @@ var vm = new Vue({
  /* render:function (createElements) {  // 使用render后，可以直接使用 import Vue from 'vue'这个不完整的文件了，不用做任何配置了。。
     return createElements(login)
   }*/
- render:c=> c(login),   // render 会把 el指定的容器内容清空
+ // render:c=> c(login),   // render 会把 el指定的容器内容清空
   router
 })
 // login.vue是通过vm的render渲染出来的，显示在el:#app

@@ -28,7 +28,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      // 'vue$': 'vue/dist/vue.js'  // 修改vue被导入时候的包的正确路径，默认 webpack引入的路径文件不完整
+      'vue$': 'vue/dist/vue.js'  // 修改vue被导入时候的包的正确路径，默认 webpack引入的路径文件不完整
     }
   }
 }
